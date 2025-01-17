@@ -1,4 +1,6 @@
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
+import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
@@ -38,17 +40,16 @@ public class Principal {
         calculadora.inclui(lost);
         System.out.println(calculadora.getTempoTotal());
 
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(favorito);
 
-        ContaBancaria conta = new ContaBancaria();
-        conta.depositar(1000);
-        conta.consultarSaldo();
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(lost);
+        episodio.setTotalVisualizacoes(300);
+        filtro.filtra(episodio);
 
-        ContaCorrente contaCorrente = new ContaCorrente();
-        contaCorrente.depositar(200);
-        contaCorrente.cobrarTafiraMensal();
-        contaCorrente.consultarSaldo();
-        contaCorrente.sacar(150);
-        contaCorrente.consultarSaldo();
+
     }
 
 }
